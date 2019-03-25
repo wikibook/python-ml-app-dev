@@ -1,0 +1,47 @@
+<DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <body>
+      <h1>텍스트 카테고리 판별하기</h1>
+      <div>
+          <textarea id="q" rows="10" cols="60"></textarea>
+          <br>
+          <button id="qButton">판정</button>
+          <div id="result"></div>
+      </div>
+      <script>
+          const qs = (q) => document.querySelector(q)
+          window.onload = () => {
+              const q = qs('#q')
+              const qButton = qs('#qButton')
+              const result = qs('#result')
+              // 판정 버튼을 눌렀을 때 --- ( ※ 1)
+              qButton.onclick = () => {
+                  result.innerHTML = "..."
+                  // URL 생성하기 --- ( ※ 2)
+                  const api = "/api?q=" + encodeURIComponent(q.value)
+                  // API에 접근하기 --- ( ※ 3)
+                  fetch(api).then((res) => {
+                      return res.json() // JSON 응답
+                  }).then((data) => {
+                      // 결과를 화면에 출력하기 --- ( ※ 4)
+                      result.innerHTML =
+                          data["label"] +
+                          "<span style='font-size:0.5em'>(" + data["per"] + ")</span>"
+                  })
+              }
+          }
+      </script>
+      <style>
+          #result {
+              padding: 10px;
+              font-size: 2em;
+              color: red;
+          }
+          
+          #q {
+              background-color: #fffff0;
+          }
+      </style>
+  </body>
+</html>

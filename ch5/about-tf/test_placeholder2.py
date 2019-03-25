@@ -1,0 +1,18 @@
+import tensorflow as tf
+
+# 플레이스홀더 정의하기 --- (*1)
+a = tf.placeholder(tf.int32, [None, 2])
+
+# 벡터를 2배 하는 연산 정의하기 --- (*2)
+two = tf.constant(2)
+x2_op = a * two
+
+# 세션 시작하기 --- (*3)
+sess = tf.Session()
+
+# 플레이스 홀더에 값을 넣어 실행하기 --- (*4)
+sample_list = [[1, 1], [2, 2], [3, 3], [4, 4]]
+res = sess.run(x2_op, feed_dict={ a: sample_list })
+print(res)
+
+
