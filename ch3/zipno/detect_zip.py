@@ -18,7 +18,7 @@ def detect_zipno(fname):
     # 윤곽 검출하기 --- (*3)
     cnts = cv2.findContours(im2, 
         cv2.RETR_LIST,
-        cv2.CHAIN_APPROX_SIMPLE)[1]
+        cv2.CHAIN_APPROX_SIMPLE)[0]
     
     # 추출한 이미지에서 윤곽 추출하기--- (*4)
     result = []
