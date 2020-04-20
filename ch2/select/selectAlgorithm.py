@@ -23,6 +23,15 @@ warnings.filterwarnings('ignore')
 allAlgorithms = all_estimators(type_filter="classifier")
 
 for(name, algorithm) in allAlgorithms:
+    if name == 'ClassifierChain' : continue
+        elif name == 'CheckingClassifier' : continue
+        elif name == 'MultiOutputClassifier' : continue
+        elif name == 'OneVsOneClassifier' : continue
+        elif name == 'OneVsRestClassifier' : continue
+        elif name == 'OutputCodeClassifier' : continue
+        elif name == 'StackingClassifier' : continue
+        elif name == 'VotingClassifier' : continue
+            
     # 각 알고리즘 객체 생성하기 --- (*2)
     clf = algorithm()
 
