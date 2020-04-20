@@ -19,6 +19,15 @@ allAlgorithms = all_estimators(type_filter="classifier")
 kfold_cv = KFold(n_splits=5, shuffle=True)
 
 for(name, algorithm) in allAlgorithms:
+    if name == 'ClassifierChain' : continue
+        elif name == 'CheckingClassifier' : continue
+        elif name == 'MultiOutputClassifier' : continue
+        elif name == 'OneVsOneClassifier' : continue
+        elif name == 'OneVsRestClassifier' : continue
+        elif name == 'OutputCodeClassifier' : continue
+        elif name == 'StackingClassifier' : continue
+        elif name == 'VotingClassifier' : continue
+            
     # 각 알고리즘 객체 생성하기
     clf = algorithm()
 
