@@ -42,8 +42,8 @@ print('정답률=', score[1], 'loss=', score[0])
 
 # 학습 상태를 그래프로 그리기 --- (*9)
 # 정답률 추이를 그래프로 그리기
-plt.plot(hist.history['acc'])
-plt.plot(hist.history['val_acc'])
+plt.plot(hist.history['accuracy'])
+plt.plot(hist.history['val_accuracy'])
 plt.title('Accuracy')
 plt.legend(['train', 'test'], loc='upper left')
 plt.show()
