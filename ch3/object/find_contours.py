@@ -17,7 +17,7 @@ plt.imshow(im2, cmap="gray")
 # 윤곽 검출하기 --- (*4)
 cnts = cv2.findContours(im2, 
         cv2.RETR_LIST,
-        cv2.CHAIN_APPROX_SIMPLE)[1]
+        cv2.CHAIN_APPROX_SIMPLE)[0]
 # 검출한 윤곽 그리기 --- (*5)
 for pt in cnts:
     x, y, w, h = cv2.boundingRect(pt)
